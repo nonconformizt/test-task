@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+main.container {
+    margin-top: 100px;
+}
+
+.user-select {
+    margin-left: 30px;
+    outline: none;
+}
+
+pre {
+    margin-top: 40px;
+}

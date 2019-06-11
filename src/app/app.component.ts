@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+  import { Component } from '@angular/core';
+  import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'task';
+
+  constructor( public userService : UserService ) {}
+
+
+  onUserChange(val : string) {
+    // вызвать процесс смены пользователя
+    this.userService.changeUser(+val);
+
+    // подписаться на событие
+    let subscr = this.userService.userChanged.subscribe((user) => {
+      alert("User changed to " + user);
+      subscr.unsubscribe();
+    })
+    
+  }
+
+
 }
